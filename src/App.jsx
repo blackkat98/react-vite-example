@@ -4,6 +4,10 @@ import { useState, useRef, useCallback, useEffect, useLayoutEffect, useMemo } fr
 import pineTreesImg from '@/assets/image/pine-trees.png'
 import sunImg from '@/assets/image/sun.png'
 import moonImg from '@/assets/image/moon.png'
+import projectFolderImg from '@/assets/image/project-folder.png'
+import useHookImg from '@/assets/image/use-hooks.png'
+import useHook2Img from '@/assets/image/use-hooks-2.png'
+import jsxImg from '@/assets/image/jsx.png'
 import '@/assets/css/App.css'
 
 function App() {
@@ -73,6 +77,7 @@ function App() {
                 As they say, you have to understand it to hate it.
                 And I cannot wait to express how much I dislike the thing.
             `,
+            image: projectFolderImg,
         },
         {
             title: 'All the "use-" hooks - A pain in the neck',
@@ -84,6 +89,7 @@ function App() {
                 And I haven't mention that some of them do the same thing with slight differences.
                 Wow.
             `,
+            image: useHookImg,
         },
         {
             title: 'JSX itself - Blurs Logic and Markup',
@@ -95,6 +101,7 @@ function App() {
                 It looks super cluttered and is hard to read.
                 Look how well VueJS handle that, by separating the script from the DOM templates!
             `,
+            image: jsxImg,
         },
         {
             title: 'Oh it is re-rendering! - But, who asked?',
@@ -116,6 +123,7 @@ function App() {
                 Congratulation, this is hell for juniors like you!
                 Some simple things look complex from the start. So good luck upgrading the feature!
             `,
+            image: useHook2Img,
         },
         {
             title: 'Conclusion - Or whatever it is',
@@ -148,6 +156,15 @@ function App() {
             className="relative w-full h-screen overflow-y-scroll overflow-x-hidden"
         >
             {/* Fixed pine tree background */}
+            <div className='fixed bottom-0 right-6 z-[110] text-xs'>
+                <a
+                    className='text-yellow-100'
+                    href='https://github.com/blackkat98/react-vite-example'
+                    target='_blank'
+                >
+                    https://github.com/blackkat98/react-vite-example
+                </a>
+            </div>
             <motion.div
                 className="fixed bottom-0 left-0 w-[calc(100vw-8px)] h-screen bg-no-repeat bg-bottom bg-cover z-[100] pointer-events-none flex justify-center items-end"
                 style={{ backgroundImage: `url(${pineTreesImg})`, filter: shades }}
@@ -184,6 +201,10 @@ function App() {
                         <div className='mx-auto w-[33%] text-gray-900 text-center drop-shadow whitespace-pre-line'>
                             {item.content}
                         </div>
+                        {item.image && <img
+                            className='mx-auto w-[28%]'
+                            src={item.image}
+                        />}
                     </section>
                 ))}
             </div>
